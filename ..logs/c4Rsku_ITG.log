@@ -1,0 +1,135 @@
+[2022-06-22T11:19:26.026Z] [org.springframework.boot.StartupInfoLogger] [55] [INFO ] Starting RSkuApplication using Java 1.8.0_201 on DESKTOP-RUG5JL2 with PID 5052 (D:\Pervez\C4\RSKU_Project\rSku\target\classes started by mohammap in D:\Pervez\C4\RSKU_Project\rSku)
+[2022-06-22T11:19:26.026Z] [org.springframework.boot.StartupInfoLogger] [56] [DEBUG] Running with Spring Boot v2.5.4, Spring v5.3.9
+[2022-06-22T11:19:26.026Z] [org.springframework.boot.SpringApplication] [663] [INFO ] The following profiles are active: itg
+[2022-06-22T11:19:26.026Z] [org.springframework.boot.logging.DeferredLog] [255] [INFO ] The Class-Path manifest attribute in D:\Users\mohammap\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.1.0.0\ojdbc8-21.1.0.0.jar referenced one or more files that do not exist: file:/D:/Users/mohammap/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.1.0.0/oraclepki.jar
+[2022-06-22T11:19:26.026Z] [org.springframework.boot.logging.DeferredLog] [255] [INFO ] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2022-06-22T11:19:26.026Z] [org.springframework.boot.logging.DeferredLog] [255] [INFO ] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2022-06-22T11:19:28.028Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [132] [INFO ] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-06-22T11:19:28.028Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [201] [INFO ] Finished Spring Data repository scanning in 67 ms. Found 0 JPA repository interfaces.
+[2022-06-22T11:19:29.029Z] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [108] [INFO ] Tomcat initialized with port(s): 8081 (http)
+[2022-06-22T11:19:29.029Z] [org.apache.juli.logging.DirectJDKLog] [173] [INFO ] Starting service [Tomcat]
+[2022-06-22T11:19:29.029Z] [org.apache.juli.logging.DirectJDKLog] [173] [INFO ] Starting Servlet engine: [Apache Tomcat/9.0.52]
+[2022-06-22T11:19:30.030Z] [org.apache.juli.logging.DirectJDKLog] [173] [INFO ] Initializing Spring embedded WebApplicationContext
+[2022-06-22T11:19:30.030Z] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [290] [INFO ] Root WebApplicationContext: initialization completed in 3234 ms
+[2022-06-22T11:19:30.030Z] [com.zaxxer.hikari.HikariDataSource] [110] [INFO ] HikariPool-1 - Starting...
+[2022-06-22T11:19:32.032Z] [com.zaxxer.hikari.HikariDataSource] [123] [INFO ] HikariPool-1 - Start completed.
+[2022-06-22T11:19:32.032Z] [org.hibernate.jpa.internal.util.LogHelper] [31] [INFO ] HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-06-22T11:19:32.032Z] [org.hibernate.Version] [44] [INFO ] HHH000412: Hibernate ORM core version 5.4.32.Final
+[2022-06-22T11:19:32.032Z] [org.hibernate.annotations.common.reflection.java.JavaReflectionManager] [56] [INFO ] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-06-22T11:19:32.032Z] [org.hibernate.dialect.Dialect] [175] [INFO ] HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
+[2022-06-22T11:19:34.034Z] [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator] [52] [INFO ] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-06-22T11:19:34.034Z] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [437] [INFO ] Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-06-22T11:19:35.035Z] [org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration] [219] [WARN ] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2022-06-22T11:19:35.035Z] [com.hp.c4.rsku.rSku.configuration.LoadRskuDBService] [46] [INFO ] Loading All C4 DB properties into C4 Env = ITG:..property/c4_rsku_ITG.properties
+[2022-06-22T11:19:35.035Z] [com.hp.c4.rsku.rSku.configuration.LoadRskuDBService] [63] [ERROR] Inside exception of Cemailer constructor ---- ..property\c4_rsku_ITG.properties (The system cannot find the path specified)
+[2022-06-22T11:19:35.035Z] [com.hp.c4.rsku.rSku.configuration.LoadRskuDBService] [101] [ERROR] Error: null
+[2022-06-22T11:19:36.036Z] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [58] [INFO ] LiveReload server is running on port 35729
+[2022-06-22T11:19:36.036Z] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [220] [INFO ] Tomcat started on port(s): 8081 (http) with context path ''
+[2022-06-22T11:19:36.036Z] [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] [120] [INFO ] Context refreshed
+[2022-06-22T11:19:36.036Z] [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] [123] [INFO ] Found 1 custom documentation plugin(s)
+[2022-06-22T11:19:36.036Z] [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] [41] [INFO ] Scanning for api listing references
+[2022-06-22T11:19:37.037Z] [org.springframework.boot.StartupInfoLogger] [61] [INFO ] Started RSkuApplication in 11.27 seconds (JVM running for 12.374)
+[2022-06-22T11:20:48.048Z] [org.springframework.boot.StartupInfoLogger] [55] [INFO ] Starting RSkuApplication using Java 1.8.0_201 on DESKTOP-RUG5JL2 with PID 10772 (D:\Pervez\C4\RSKU_Project\rSku\target\classes started by mohammap in D:\Pervez\C4\RSKU_Project\rSku)
+[2022-06-22T11:20:48.048Z] [org.springframework.boot.StartupInfoLogger] [56] [DEBUG] Running with Spring Boot v2.5.4, Spring v5.3.9
+[2022-06-22T11:20:48.048Z] [org.springframework.boot.SpringApplication] [663] [INFO ] The following profiles are active: itg
+[2022-06-22T11:20:48.048Z] [org.springframework.boot.logging.DeferredLog] [255] [INFO ] The Class-Path manifest attribute in D:\Users\mohammap\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.1.0.0\ojdbc8-21.1.0.0.jar referenced one or more files that do not exist: file:/D:/Users/mohammap/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.1.0.0/oraclepki.jar
+[2022-06-22T11:20:48.048Z] [org.springframework.boot.logging.DeferredLog] [255] [INFO ] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2022-06-22T11:20:48.048Z] [org.springframework.boot.logging.DeferredLog] [255] [INFO ] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2022-06-22T11:20:50.050Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [132] [INFO ] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-06-22T11:20:50.050Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [201] [INFO ] Finished Spring Data repository scanning in 151 ms. Found 0 JPA repository interfaces.
+[2022-06-22T11:20:52.052Z] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [108] [INFO ] Tomcat initialized with port(s): 8081 (http)
+[2022-06-22T11:20:52.052Z] [org.apache.juli.logging.DirectJDKLog] [173] [INFO ] Starting service [Tomcat]
+[2022-06-22T11:20:52.052Z] [org.apache.juli.logging.DirectJDKLog] [173] [INFO ] Starting Servlet engine: [Apache Tomcat/9.0.52]
+[2022-06-22T11:20:52.052Z] [org.apache.juli.logging.DirectJDKLog] [173] [INFO ] Initializing Spring embedded WebApplicationContext
+[2022-06-22T11:20:52.052Z] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [290] [INFO ] Root WebApplicationContext: initialization completed in 4350 ms
+[2022-06-22T11:20:52.052Z] [com.zaxxer.hikari.HikariDataSource] [110] [INFO ] HikariPool-1 - Starting...
+[2022-06-22T11:20:54.054Z] [com.zaxxer.hikari.HikariDataSource] [123] [INFO ] HikariPool-1 - Start completed.
+[2022-06-22T11:20:54.054Z] [org.hibernate.jpa.internal.util.LogHelper] [31] [INFO ] HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-06-22T11:20:54.054Z] [org.hibernate.Version] [44] [INFO ] HHH000412: Hibernate ORM core version 5.4.32.Final
+[2022-06-22T11:20:55.055Z] [org.hibernate.annotations.common.reflection.java.JavaReflectionManager] [56] [INFO ] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-06-22T11:20:55.055Z] [org.hibernate.dialect.Dialect] [175] [INFO ] HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
+[2022-06-22T11:20:57.057Z] [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator] [52] [INFO ] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-06-22T11:20:57.057Z] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [437] [INFO ] Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-06-22T11:20:58.058Z] [org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration] [219] [WARN ] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2022-06-22T11:20:58.058Z] [com.hp.c4.rsku.rSku.configuration.LoadRskuDBService] [46] [INFO ] Loading All C4 DB properties into C4 Env = ITG:../c4_rsku_ITG.properties
+[2022-06-22T11:20:58.058Z] [com.hp.c4.rsku.rSku.configuration.LoadRskuDBService] [60] [INFO ]  ***** In Try block: FileInputStream in is closed.  
+[2022-06-22T11:20:58.058Z] [com.hp.c4.rsku.rSku.configuration.LoadRskuDBService] [70] [INFO ]  *****  In  block :  BufferedFileReader - tLineReader  is closed
+[2022-06-22T11:20:58.058Z] [com.hp.c4.rsku.rSku.dbio.persistent.CdbConnectionMgr] [87] [INFO ] EPam..{}:
+[2022-06-22T11:20:58.058Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [40] [INFO ] TEsting..epam.api.keystore.file.location:C:/temp/src/basicpbpsdemo/cacerts.jks
+[2022-06-22T11:20:58.058Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [40] [INFO ] TEsting..epam.api.host.name:epam-dc-itg.corp.hpicloud.net
+[2022-06-22T11:20:58.058Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [40] [INFO ] TEsting..epam.api.keystore.password:changeit
+[2022-06-22T11:20:58.058Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [40] [INFO ] TEsting..epam.api.key:MWU2MGQ0MmQxZjNjNGZlM2FjNmRmMTg3M2QwZWI5YmM3ZmQ1MTY4MmY1Zjk2YTUwNGIyYTFlNzVmOTVmMjA0NTEyMjU4ODNjY2FhMGNlZTBiZWExZDNkYWUwYzM5NTA4ODczOGMwZWY3OGQ0ZTMxODA4NDZkMGQ5ZmNjYTYwMTk=
+[2022-06-22T11:20:58.058Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [40] [INFO ] TEsting..epam.api.runas.user:auth.hpicorp.net\epamitgC4RunAs
+[2022-06-22T11:20:58.058Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [74] [INFO ] *****************************************************************************************************
+[2022-06-22T11:20:58.058Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [77] [INFO ] Connecting to External API...... For EPAM Authentication........Started ....{EPAM_ACCOUNT_NAME=c4prod, EPAM_C4_API_RUN_AS_USER=auth.hpicorp.net\epamitgC4RunAs, EPAM_C4_API_KEY_STORE_PWD=changeit, EPAM_C4_API_KEY=MWU2MGQ0MmQxZjNjNGZlM2FjNmRmMTg3M2QwZWI5YmM3ZmQ1MTY4MmY1Zjk2YTUwNGIyYTFlNzVmOTVmMjA0NTEyMjU4ODNjY2FhMGNlZTBiZWExZDNkYWUwYzM5NTA4ODczOGMwZWY3OGQ0ZTMxODA4NDZkMGQ5ZmNjYTYwMTk=, EPAM_SYSTEM_NAME=c4onsi.inc.hpicorp.net%20(Db%20Instance:%20C4ONSI,%20Port:1525), EPAM_C4_API_HOST_NAME=epam-dc-itg.corp.hpicloud.net, EPAM_C4_API_KEY_STORE_FILE=C:/temp/src/basicpbpsdemo/cacerts.jks}
+[2022-06-22T11:21:02.002Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [82] [INFO ] Signed in as epamitgC4RunAs
+[2022-06-22T11:21:02.002Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [87] [INFO ] Found System|Account: c4onsi.inc.hpicorp.net (Db Instance: C4ONSI, Port:1525)|c4prod
+[2022-06-22T11:21:03.003Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [97] [INFO ] Request ID: 117772
+[2022-06-22T11:21:03.003Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [102] [INFO ] ---
+[2022-06-22T11:21:03.003Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [103] [INFO ] l5Ix*X*03L*t
+[2022-06-22T11:21:03.003Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [104] [INFO ] ---
+[2022-06-22T11:21:03.003Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [108] [INFO ] Request checked-in
+[2022-06-22T11:21:03.003Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [112] [INFO ] Signed out
+[2022-06-22T11:21:03.003Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [114] [INFO ] *****************************************************************************************************
+[2022-06-22T11:21:03.003Z] [com.hp.c4.rsku.rSku.dbio.persistent.CdbConnectionMgr] [125] [INFO ] DB Password==l5Ix*X*03L*t:c4prod:jdbc:oracle:thin:@(DESCRIPTION = (SDU = 32768) (enable = broken) (LOAD_BALANCE = yes) (ADDRESS = (PROTOCOL = TCP)(HOST = c4onsi.inc.hpicorp.net)(PORT = 1525)) (ADDRESS = (PROTOCOL = TCP)(HOST = c4onsi.inc.hpicorp.net)(PORT = 1525)) (CONNECT_DATA = (SERVICE_NAME = C4ONSI)))
+[2022-06-22T11:21:03.003Z] [com.hp.c4.rsku.rSku.dbio.persistent.CdbConnectionMgr] [167] [INFO ] ons string: nodes=c4onsi.inc.hpicorp.net:6200,c4onsi.inc.hpicorp.net:6200,c4onsi.inc.hpicorp.net:6200,c4onsi.inc.hpicorp.net:6200
+[2022-06-22T11:21:03.003Z] [com.hp.c4.rsku.rSku.dbio.persistent.CdbConnectionMgr] [55] [INFO ] Pool created successfully for : c4.dbPool.OnlineShort
+[2022-06-22T11:21:03.003Z] [com.hp.c4.rsku.rSku.dbio.persistent.CdbConnectionMgr] [87] [INFO ] EPam..{}:
+[2022-06-22T11:21:03.003Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [74] [INFO ] *****************************************************************************************************
+[2022-06-22T11:21:03.003Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [77] [INFO ] Connecting to External API...... For EPAM Authentication........Started ....{EPAM_ACCOUNT_NAME=c4prod, EPAM_C4_API_RUN_AS_USER=auth.hpicorp.net\epamitgC4RunAs, EPAM_C4_API_KEY_STORE_PWD=changeit, EPAM_C4_API_KEY=MWU2MGQ0MmQxZjNjNGZlM2FjNmRmMTg3M2QwZWI5YmM3ZmQ1MTY4MmY1Zjk2YTUwNGIyYTFlNzVmOTVmMjA0NTEyMjU4ODNjY2FhMGNlZTBiZWExZDNkYWUwYzM5NTA4ODczOGMwZWY3OGQ0ZTMxODA4NDZkMGQ5ZmNjYTYwMTk=, EPAM_SYSTEM_NAME=c4offi.inc.hpicorp.net%20(Db%20Instance:%20C4OFFI,%20Port:1525), EPAM_C4_API_HOST_NAME=epam-dc-itg.corp.hpicloud.net, EPAM_C4_API_KEY_STORE_FILE=C:/temp/src/basicpbpsdemo/cacerts.jks}
+[2022-06-22T11:21:06.006Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [82] [INFO ] Signed in as epamitgC4RunAs
+[2022-06-22T11:21:07.007Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [87] [INFO ] Found System|Account: c4offi.inc.hpicorp.net (Db Instance: C4OFFI, Port:1525)|c4prod
+[2022-06-22T11:21:07.007Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [97] [INFO ] Request ID: 117773
+[2022-06-22T11:21:08.008Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [102] [INFO ] ---
+[2022-06-22T11:21:08.008Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [103] [INFO ] N*b*2n4U_oB4
+[2022-06-22T11:21:08.008Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [104] [INFO ] ---
+[2022-06-22T11:21:08.008Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [108] [INFO ] Request checked-in
+[2022-06-22T11:21:08.008Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [112] [INFO ] Signed out
+[2022-06-22T11:21:08.008Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [114] [INFO ] *****************************************************************************************************
+[2022-06-22T11:21:08.008Z] [com.hp.c4.rsku.rSku.dbio.persistent.CdbConnectionMgr] [125] [INFO ] DB Password==N*b*2n4U_oB4:c4prod:jdbc:oracle:thin:@(DESCRIPTION = (SDU = 32768) (enable = broken) (LOAD_BALANCE = yes) (ADDRESS = (PROTOCOL = TCP)(HOST = c4offi.inc.hpicorp.net)(PORT = 1525)) (ADDRESS = (PROTOCOL = TCP)(HOST = c4offi.inc.hpicorp.net)(PORT = 1525)) (CONNECT_DATA = (SERVICE_NAME = C4OFFI)))
+[2022-06-22T11:21:08.008Z] [com.hp.c4.rsku.rSku.dbio.persistent.CdbConnectionMgr] [167] [INFO ] ons string: nodes=c4offi.inc.hpicorp.net:6200,c4offi.inc.hpicorp.net:6200,c4offi.inc.hpicorp.net:6200,c4offi.inc.hpicorp.net:6200
+[2022-06-22T11:21:08.008Z] [com.hp.c4.rsku.rSku.dbio.persistent.CdbConnectionMgr] [55] [INFO ] Pool created successfully for : c4.dbPool.Offline
+[2022-06-22T11:21:08.008Z] [com.hp.c4.rsku.rSku.dbio.persistent.CdbConnectionMgr] [87] [INFO ] EPam..{}:
+[2022-06-22T11:21:08.008Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [74] [INFO ] *****************************************************************************************************
+[2022-06-22T11:21:08.008Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [77] [INFO ] Connecting to External API...... For EPAM Authentication........Started ....{EPAM_ACCOUNT_NAME=gpssnap, EPAM_C4_API_RUN_AS_USER=auth.hpicorp.net\epamitgC4RunAs, EPAM_C4_API_KEY_STORE_PWD=changeit, EPAM_C4_API_KEY=MWU2MGQ0MmQxZjNjNGZlM2FjNmRmMTg3M2QwZWI5YmM3ZmQ1MTY4MmY1Zjk2YTUwNGIyYTFlNzVmOTVmMjA0NTEyMjU4ODNjY2FhMGNlZTBiZWExZDNkYWUwYzM5NTA4ODczOGMwZWY3OGQ0ZTMxODA4NDZkMGQ5ZmNjYTYwMTk=, EPAM_SYSTEM_NAME=c4onsi.inc.hpicorp.net%20(Db%20Instance:%20C4ONSI,%20Port:1525), EPAM_C4_API_HOST_NAME=epam-dc-itg.corp.hpicloud.net, EPAM_C4_API_KEY_STORE_FILE=C:/temp/src/basicpbpsdemo/cacerts.jks}
+[2022-06-22T11:21:11.011Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [82] [INFO ] Signed in as epamitgC4RunAs
+[2022-06-22T11:21:11.011Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [87] [INFO ] Found System|Account: c4onsi.inc.hpicorp.net (Db Instance: C4ONSI, Port:1525)|gpssnap
+[2022-06-22T11:21:12.012Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [97] [INFO ] Request ID: 117774
+[2022-06-22T11:21:12.012Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [102] [INFO ] ---
+[2022-06-22T11:21:12.012Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [103] [INFO ] j*A6JQh_v6*0
+[2022-06-22T11:21:12.012Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [104] [INFO ] ---
+[2022-06-22T11:21:12.012Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [108] [INFO ] Request checked-in
+[2022-06-22T11:21:13.013Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [112] [INFO ] Signed out
+[2022-06-22T11:21:13.013Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [114] [INFO ] *****************************************************************************************************
+[2022-06-22T11:21:13.013Z] [com.hp.c4.rsku.rSku.dbio.persistent.CdbConnectionMgr] [125] [INFO ] DB Password==j*A6JQh_v6*0:gpssnap:jdbc:oracle:thin:@(DESCRIPTION = (SDU = 32768) (enable = broken) (LOAD_BALANCE = yes) (ADDRESS = (PROTOCOL = TCP)(HOST = c4onsi.inc.hpicorp.net)(PORT = 1525)) (ADDRESS = (PROTOCOL = TCP)(HOST = c4onsi.inc.hpicorp.net)(PORT = 1525)) (CONNECT_DATA = (SERVICE_NAME = C4ONSI)))
+[2022-06-22T11:21:13.013Z] [com.hp.c4.rsku.rSku.dbio.persistent.CdbConnectionMgr] [167] [INFO ] ons string: nodes=c4onsi.inc.hpicorp.net:6200,c4onsi.inc.hpicorp.net:6200,c4onsi.inc.hpicorp.net:6200,c4onsi.inc.hpicorp.net:6200
+[2022-06-22T11:21:13.013Z] [com.hp.c4.rsku.rSku.dbio.persistent.CdbConnectionMgr] [55] [INFO ] Pool created successfully for : c4.dbPool.Util
+[2022-06-22T11:21:13.013Z] [com.hp.c4.rsku.rSku.dbio.persistent.CdbConnectionMgr] [87] [INFO ] EPam..{}:
+[2022-06-22T11:21:13.013Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [74] [INFO ] *****************************************************************************************************
+[2022-06-22T11:21:13.013Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [77] [INFO ] Connecting to External API...... For EPAM Authentication........Started ....{EPAM_ACCOUNT_NAME=infoshu, EPAM_C4_API_RUN_AS_USER=auth.hpicorp.net\epamitgC4RunAs, EPAM_C4_API_KEY_STORE_PWD=changeit, EPAM_C4_API_KEY=MWU2MGQ0MmQxZjNjNGZlM2FjNmRmMTg3M2QwZWI5YmM3ZmQ1MTY4MmY1Zjk2YTUwNGIyYTFlNzVmOTVmMjA0NTEyMjU4ODNjY2FhMGNlZTBiZWExZDNkYWUwYzM5NTA4ODczOGMwZWY3OGQ0ZTMxODA4NDZkMGQ5ZmNjYTYwMTk=, EPAM_SYSTEM_NAME=c4infi.inc.hpicorp.net%20(Db%20Instance:%20C4INFI,%20Port:1525), EPAM_C4_API_HOST_NAME=epam-dc-itg.corp.hpicloud.net, EPAM_C4_API_KEY_STORE_FILE=C:/temp/src/basicpbpsdemo/cacerts.jks}
+[2022-06-22T11:21:16.016Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [82] [INFO ] Signed in as epamitgC4RunAs
+[2022-06-22T11:21:16.016Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [87] [INFO ] Found System|Account: c4infi.inc.hpicorp.net (Db Instance: C4INFI, Port:1525)|infoshu
+[2022-06-22T11:21:17.017Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [97] [INFO ] Request ID: 117775
+[2022-06-22T11:21:17.017Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [102] [INFO ] ---
+[2022-06-22T11:21:17.017Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [103] [INFO ] H_d4*_Wpg7Q8
+[2022-06-22T11:21:17.017Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [104] [INFO ] ---
+[2022-06-22T11:21:17.017Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [108] [INFO ] Request checked-in
+[2022-06-22T11:21:17.017Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [112] [INFO ] Signed out
+[2022-06-22T11:21:17.017Z] [com.hp.c4.rsku.rSku.rest.epam.api.C4EpamAPIPassword] [114] [INFO ] *****************************************************************************************************
+[2022-06-22T11:21:17.017Z] [com.hp.c4.rsku.rSku.dbio.persistent.CdbConnectionMgr] [125] [INFO ] DB Password==H_d4*_Wpg7Q8:infoshu:jdbc:oracle:thin:@(DESCRIPTION = (SDU = 32768) (enable = broken) (LOAD_BALANCE = yes) (ADDRESS = (PROTOCOL = TCP)(HOST = c4infi.inc.hpicorp.net)(PORT = 1525)) (ADDRESS = (PROTOCOL = TCP)(HOST = c4infi.inc.hpicorp.net)(PORT = 1525)) (CONNECT_DATA = (SERVICE_NAME = C4INFI)))
+[2022-06-22T11:21:17.017Z] [com.hp.c4.rsku.rSku.dbio.persistent.CdbConnectionMgr] [167] [INFO ] ons string: nodes=c4infi.inc.hpicorp.net:6200					 ,c4infi.inc.hpicorp.net:6200					 ,c4infi.inc.hpicorp.net:6200					 ,c4infi.inc.hpicorp.net:6200					 
+[2022-06-22T11:21:17.017Z] [com.hp.c4.rsku.rSku.dbio.persistent.CdbConnectionMgr] [55] [INFO ] Pool created successfully for : c4.dbPool.c4security
+[2022-06-22T11:21:17.017Z] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [58] [INFO ] LiveReload server is running on port 35729
+[2022-06-22T11:21:18.018Z] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [220] [INFO ] Tomcat started on port(s): 8081 (http) with context path ''
+[2022-06-22T11:21:18.018Z] [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] [120] [INFO ] Context refreshed
+[2022-06-22T11:21:18.018Z] [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] [123] [INFO ] Found 1 custom documentation plugin(s)
+[2022-06-22T11:21:18.018Z] [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] [41] [INFO ] Scanning for api listing references
+[2022-06-22T11:21:18.018Z] [org.springframework.boot.StartupInfoLogger] [61] [INFO ] Started RSkuApplication in 31.413 seconds (JVM running for 32.942)
+[2022-06-22T11:22:13.013Z] [org.apache.juli.logging.DirectJDKLog] [173] [INFO ] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2022-06-22T11:22:13.013Z] [org.springframework.web.servlet.FrameworkServlet] [525] [INFO ] Initializing Servlet 'dispatcherServlet'
+[2022-06-22T11:22:13.013Z] [org.springframework.web.servlet.FrameworkServlet] [547] [INFO ] Completed initialization in 2 ms
+[2022-06-22T11:22:17.017Z] [com.hp.c4.rsku.rSku.rest.epam.controller.EpamController] [141] [INFO ] DB_USER_NAMES[infoshu, c4report, c4prod, eclp_cach, gpssnap, dart_cach, c4tera]:7
+[2022-06-22T11:22:17.017Z] [com.hp.c4.rsku.rSku.rest.epam.controller.EpamController] [159] [INFO ] URL-Builder=https://epam-dc-itg.corp.hpicloud.net/BeyondTrust/api/public/v3/{account}?systemName=c4onsi.inc.hpicorp.net (Db Instance: C4ONSI, Port:1525)&accountName=c4prod
+[2022-06-22T11:22:18.018Z] [com.hp.c4.rsku.rSku.rest.epam.controller.EpamController] [191] [INFO ] Password = "l5Ix*X*03L*t"
+[2022-06-22T11:22:18.018Z] [com.hp.c4.rsku.rSku.rest.epam.controller.EpamController] [196] [INFO ] Request checked-in
+[2022-06-22T11:22:18.018Z] [com.hp.c4.rsku.rSku.rest.epam.controller.EpamController] [201] [INFO ] Signed out
