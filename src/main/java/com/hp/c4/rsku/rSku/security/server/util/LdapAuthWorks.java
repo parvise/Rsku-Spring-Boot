@@ -2,6 +2,7 @@ package com.hp.c4.rsku.rSku.security.server.util;
 
 import java.security.Security;
 
+import com.hp.c4.epam.pwd.cache.Client.APIException;
 import com.hp.c4.rsku.rSku.EpamTest;
 
 import netscape.ldap.LDAPEntry;
@@ -10,7 +11,7 @@ import netscape.ldap.LDAPSearchResults;
 
 public class LdapAuthWorks {
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws APIException,Exception {
 		
 		System.setProperty("java.naming.ldap.factory.socket",
 				"javax.net.ssl.SSLSocketFactory");

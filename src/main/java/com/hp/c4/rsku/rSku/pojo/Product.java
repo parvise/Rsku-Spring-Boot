@@ -10,6 +10,9 @@ public class Product {
 	private String prodDesc;
 	private boolean isRSku;
 
+	private boolean isRequestedMcc;
+	private boolean isAutoMccAvl;
+
 	public String getProdId() {
 		return prodId;
 	}
@@ -58,10 +61,28 @@ public class Product {
 		this.isRSku = isRSku;
 	}
 
+	public boolean isRequestedMcc() {
+		return isRequestedMcc;
+	}
+
+	public void setRequestedMcc(boolean isRequestedMcc) {
+		this.isRequestedMcc = isRequestedMcc;
+	}
+
+	public boolean isAutoMccAvl() {
+		return isAutoMccAvl;
+	}
+
+	public void setAutoMccAvl(boolean isAutoMccAvl) {
+		this.isAutoMccAvl = isAutoMccAvl;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + (isAutoMccAvl ? 1231 : 1237);
+		result = prime * result + (isRequestedMcc ? 1231 : 1237);
 		result = prime * result + ((mcc == null) ? 0 : mcc.hashCode());
 		result = prime * result + ((opt == null) ? 0 : opt.hashCode());
 		result = prime * result + ((prodId == null) ? 0 : prodId.hashCode());
@@ -78,6 +99,10 @@ public class Product {
 		if (getClass() != obj.getClass())
 			return false;
 		Product other = (Product) obj;
+		if (isAutoMccAvl != other.isAutoMccAvl)
+			return false;
+		if (isRequestedMcc != other.isRequestedMcc)
+			return false;
 		if (mcc == null) {
 			if (other.mcc != null)
 				return false;
@@ -103,7 +128,7 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "[" + prodId + "]";
+		return "[" + prodId + "|" + opt + "|" + spn + "|" + mcc + "]";
 	}
 
 }

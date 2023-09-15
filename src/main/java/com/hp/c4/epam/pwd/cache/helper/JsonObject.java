@@ -19,7 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  ******************************************************************************/
-package com.hp.c4.rsku.rSku.rest.epam.api.json;
+package com.hp.c4.epam.pwd.cache.helper;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -29,7 +29,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import com.hp.c4.rsku.rSku.rest.epam.api.json.JsonObject.Member;
+import com.hp.c4.epam.pwd.cache.helper.JsonObject.Member;
 
 
 /**

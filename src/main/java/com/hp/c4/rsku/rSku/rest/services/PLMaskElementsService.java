@@ -29,10 +29,10 @@ public class PLMaskElementsService {
 		}
 	}
 
-	public Map<String, List<MaskElementTypes>> getAllDefaultMasElementTypes() {
+	public Map<String, List<MaskElementTypes>> getAllDefaultCosElementTypes() {
 
 		try {
-			return pLMaskElementsRepo.getAllDefaultMasElementTypes();
+			return pLMaskElementsRepo.getAllDefaultCosElementTypes();
 		} catch (C4Exception e) {
 			Map<String, List<MaskElementTypes>> exception = new HashMap<String, List<MaskElementTypes>>();
 			exception.put("C4 Exception Please contact to C4 Admin", null);

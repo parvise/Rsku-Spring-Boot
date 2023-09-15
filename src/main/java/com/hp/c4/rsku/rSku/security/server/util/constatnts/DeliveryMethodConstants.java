@@ -2,12 +2,14 @@ package com.hp.c4.rsku.rSku.security.server.util.constatnts;
 
 public enum DeliveryMethodConstants {
 
-	DDP("DDP", "Delivered Duty Paid", "VTRDX"), CIP("CIP", "Carriage and Insurance Paid To", "CIPTX"),
-	CPT("CPT", "Carriage Paid To", "CPTTX"), CIF("CIF", "Cost, Insurance and Freight", "CIFTX"),
-	DAF("DAF", "Delivered At Frontier", "DAFTX"), DDU("DDU", "Delivered Duty Unpaid", "DDUTX"),
-	EXW("EXW", "EXWorks", "EXWTX"), FCA("FCA", "Free CArrier", "FCATX"), FOB("FOB", "Free On Board", "FOBTX"),
-	DAP("DAP", "Delivered Duty Unpaid", "DDUTX"), DAT("DAT", "Delivered Duty Unpaid", "DDUTX");
+	DDP("DDP", "Delivered Duty Paid", "VTRDX"), DAP("DAP", "Delivered Duty Unpaid", "DDUTX"),
+	DAT("DAT", "Delivered Duty Unpaid", "DDUTX"), DDU("DDU", "Delivered Duty Unpaid", "DDUTX"),
+	// "DAP","DDU","DDP","DAT" (AIR,RAIL,TRUCK,EXPRESS,SEA)
+	CIP("CIP", "Carriage and Insurance Paid To", "CIPTX"), CPT("CPT", "Carriage Paid To", "CPTTX"),
+	CIF("CIF", "Cost, Insurance and Freight", "CIFTX"), DAF("DAF", "Delivered At Frontier", "DAFTX"),
+	EXW("EXW", "EXWorks", "EXWTX"), FCA("FCA", "Free CArrier", "FCATX"), FOB("FOB", "Free On Board", "FOBTX");
 
+	// "DAP","DDU","DDP","DAT"
 	private String incoTermCode;
 	private String deliveryCodeDesc;
 	private String tradingExpCode;

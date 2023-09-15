@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,12 +26,28 @@ public class RSkuRequestController {
 	@Autowired
 	private C4PricingAnalyticsService c4PricingAnalyticsService;
 
-	@RequestMapping(value = "/getC4Cost", produces = "application/json", method = RequestMethod.POST)
-	public ResponseEntity<Object> createC4RskuRequest(@RequestBody RSkuRequest request) throws Exception {
+	@RequestMapping(value = "/getC4RskuCost", produces = "application/json", method = RequestMethod.POST)
+	public ResponseEntity<Object> getC4RskuCost(@RequestBody RSkuRequest request) throws Exception {
 
+		long start = System.currentTimeMillis();
 		mLogger.info("Accessing C4 RSKU Request service........ ");
 
-		Object obj = validateC4RskuRequestService.validateRskuRequest(request);
+		Object obj = validateC4RskuRequestService.validateRskuRequest(request, true);
+		long end = System.currentTimeMillis();
+		mLogger.info("################################ SERVICE ENDS ################ " + (end - start) / 1000);
+
+		return new ResponseEntity<Object>(obj, HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/getC4ExplicitMccsCost", produces = "application/json", method = RequestMethod.POST)
+	public ResponseEntity<Object> getC4ExplicitMccsCost(@RequestBody RSkuRequest request) throws Exception {
+
+		long start = System.currentTimeMillis();
+		mLogger.info("Accessing C4 RSKU Request service........ ");
+
+		Object obj = validateC4RskuRequestService.validateRskuRequest(request, false);
+		long end = System.currentTimeMillis();
+		mLogger.info("################################ SERVICE ENDS ################ " + (end - start) / 1000);
 
 		return new ResponseEntity<Object>(obj, HttpStatus.OK);
 	}
@@ -43,5 +60,10 @@ public class RSkuRequestController {
 		c4PricingAnalyticsService.getAllC4ProductsMonthly();
 
 		return new ResponseEntity<Object>("SUccess", HttpStatus.OK);
+	}
+	
+	@GetMapping("/welcome")
+	public String welcome() {
+		return "Welcome to Rsku Boot";
 	}
 }

@@ -87,6 +87,7 @@ public class CdbProperties {
 	public String getEpamSystemName() {
 		String hasKey = prop.getProperty(EPAM_SYSTEM_NAME, "");
 		hasKey = hasKey.replace('#', ',');
+		hasKey = hasKey.replaceAll(" ", "%20");
 		return hasKey;
 	}
 }

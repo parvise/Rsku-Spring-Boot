@@ -13,7 +13,7 @@ public class BaseEncodeDecoder {
 
 		Encoder theEncoder = Base64.getEncoder();
 		String original = "1e60d42d1f3c4fe3ac6df1873d0eb9bc7fd51682f5f96a504b2a1e75f95f20451225883ccaa0cee0bea1d3dae0c395088738c0ef78d4e3180846d0d9fcca6019";
-		original="DFER*C4ON_458";
+		original="Aq2B!i%XNK9v";
 		byte[] theArray = original.getBytes(StandardCharsets.UTF_8);
 		String base64encodedString = theEncoder.encodeToString(theArray);
 		System.out.println("Original String: " + original);

@@ -117,6 +117,9 @@ public class LoginDelegate {
 				String encoded = null;
 				if (passwd != null) {
 					encoded = passwd;
+//					Encoder theEncoder = Base64.getEncoder();
+//					byte[] theArray = passwd.getBytes(StandardCharsets.UTF_8);
+//					encoded= theEncoder.encodeToString(theArray);
 				}
 
 				if (isServiceAccountLevel) {

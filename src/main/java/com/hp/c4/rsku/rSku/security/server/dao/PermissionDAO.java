@@ -295,7 +295,7 @@ public class PermissionDAO extends ObjectDAO{
       // By Srini - Modified this method as a part of CORBA Removal H2 Project
 	  public Map getPermissions(SQLUtil util,String sessionId, String permissionType, oracle.sql.ARRAY ACLPERMISSION_ARRAY)
 	  throws C4SecurityException,SQLException {
-		mLogger.info("Test 1234); "+sessionId+" : "+permissionType+" : ");
+		mLogger.info("C4-Session ID :"+sessionId+" : "+permissionType+" : ");
 		Map mp = new HashMap();
 		ResultSet rs = null;
 		util.setSQL("{call PERMISSION.getpermissions(?,?,?,?)}");

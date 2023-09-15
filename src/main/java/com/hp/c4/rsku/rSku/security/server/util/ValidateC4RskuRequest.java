@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.hp.c4.rsku.rSku.bean.request.C4BaseProduct;
 import com.hp.c4.rsku.rSku.bean.request.RSkuRequest;
 import com.hp.c4.rsku.rSku.c4.util.Aperiod;
 import com.hp.c4.rsku.rSku.c4.util.CperiodDatesWithQueryDateImpl;
@@ -48,7 +50,8 @@ public class ValidateC4RskuRequest extends C4RskuLabelConstants {
 	@Autowired
 	private PriceDescriptorService priceDescriptorService;
 
-	public Map<String, String> validateRskuRequestFields(RSkuRequest request) throws C4SecurityException {
+	public Map<String, String> validateRskuRequestFields(RSkuRequest request, boolean isRsku)
+			throws C4SecurityException {
 
 		Map<String, String> errorMap = new LinkedHashMap<String, String>();
 		if (request.getListOfProducts() == null || request.getListOfProducts().length == 0) {
@@ -71,7 +74,19 @@ public class ValidateC4RskuRequest extends C4RskuLabelConstants {
 			}
 		}
 
-		request.setOutputCurrency("USD");
+		C4BaseProduct[] baseProductList = request.getListOfProducts();
+
+		for (C4BaseProduct c4BaseProduct : baseProductList) {
+			String prodId = c4BaseProduct.getProdIdBase();
+			if (prodId.contains(PIPE_SYMBOL)) {
+				String[] splitText = prodId.split(Pattern.quote(PIPE_SYMBOL),4);
+				if (splitText.length != 4) {
+					errorMap.put(prodId, REQ_SKU_VALID_PIPE);
+				}
+			}
+		}
+
+		//request.setOutputCurrency("USD");
 
 		String geoCode = request.getCountryCode();
 		if (geoCode == null || geoCode.trim() == "") {
@@ -125,29 +140,30 @@ public class ValidateC4RskuRequest extends C4RskuLabelConstants {
 			}
 		}
 
-		if (request.getRapidSku() == null
-				|| (request.getRapidSku() != null
-						&& (request.getRapidSku().getPl() == null || request.getRapidSku().getPl().trim() == ""))
-				|| (request.getRapidSku().getProduct() != null
-						&& (request.getRapidSku().getProduct().getrSkuProd() == null
-								|| request.getRapidSku().getProduct().getrSkuProd().trim() == ""))
-				|| request.getRapidSku().getProduct() != null
-						&& (request.getRapidSku().getProduct().getrSkuDec() == null
-								|| request.getRapidSku().getProduct().getrSkuDec().trim() == "")) {
-			errorMap.put(RAPID_SKU_KEY, RAPID_SKU_VALUE);
-		} else if (request.getRapidSku() != null && request.getRapidSku().getPl() != null) {
-			String pl = request.getRapidSku().getPl().trim();
-			Map<String, String> plToCompanyMap = c4MasterTablesInitRepo.loadAllPLsToCompanyMap();
-			if (plToCompanyMap != null) {
-				String tenant = plToCompanyMap.get(pl);
-				if (tenant == null) {
-					errorMap.put(PL_KEY + pl, PL_INVALID_VALUE);
-				} else if (!tenant.equalsIgnoreCase("HPI")) {
-					errorMap.put(PL_KEY + pl, PL_INVALID_HPI_VALUE);
+		if (isRsku)
+			if (request.getRapidSku() == null
+					|| (request.getRapidSku() != null
+							&& (request.getRapidSku().getPl() == null || request.getRapidSku().getPl().trim() == ""))
+					|| (request.getRapidSku().getProduct() != null
+							&& (request.getRapidSku().getProduct().getrSkuProd() == null
+									|| request.getRapidSku().getProduct().getrSkuProd().trim() == ""))
+					|| request.getRapidSku().getProduct() != null
+							&& (request.getRapidSku().getProduct().getrSkuDec() == null
+									|| request.getRapidSku().getProduct().getrSkuDec().trim() == "")) {
+				errorMap.put(RAPID_SKU_KEY, RAPID_SKU_VALUE);
+			} else if (request.getRapidSku() != null && request.getRapidSku().getPl() != null) {
+				String pl = request.getRapidSku().getPl().trim();
+				Map<String, String> plToCompanyMap = c4MasterTablesInitRepo.loadAllPLsToCompanyMap();
+				if (plToCompanyMap != null) {
+					String tenant = plToCompanyMap.get(pl);
+					if (tenant == null) {
+						errorMap.put(PL_KEY + pl, PL_INVALID_VALUE);
+					} else if (!tenant.equalsIgnoreCase("HPI")) {
+						errorMap.put(PL_KEY + pl, PL_INVALID_HPI_VALUE);
+					}
 				}
-			}
 
-		}
+			}
 
 		if (request.getConnect() == null
 				|| (request.getConnect() != null && (request.getConnect().getUserName().trim() == ""

@@ -9,12 +9,9 @@ import java.util.Set;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
-import org.springframework.web.client.RestTemplate;
 
 import com.hp.c4.rsku.rSku.constants.DBConstants;
 import com.hp.c4.rsku.rSku.dbio.persistent.CdbConnectionMgr;
@@ -27,7 +24,6 @@ public class LoadRskuDBService {
 
 	@Value("${rsku.services.env}")
 	private String C4_RSKU_ENV;
-	
 
 	private static Properties mEmailerProps;
 
@@ -43,7 +39,7 @@ public class LoadRskuDBService {
 
 			FileInputStream in = null;
 			try {
-				mLogger.info("Loading All C4 DB properties into C4 Env = " + C4_RSKU_ENV+":"+C4_DB_PROP_PATH);
+				mLogger.info("Loading All C4 DB properties into C4 Env = " + C4_RSKU_ENV + ":" + C4_DB_PROP_PATH);
 				in = new FileInputStream(C4_DB_PROP_PATH);
 				mEmailerProps.load(in);
 
@@ -73,22 +69,21 @@ public class LoadRskuDBService {
 					mLogger.error(" Error in the Finally block " + ignore.getMessage());
 				}
 			}
-			
 
 			try {
-				CdbConnectionMgr.getConnectionMgr()
-						.createPool(DBConstants.C4_DBPOOL_C4PROD_ONSI,
-						mEmailerProps.getProperty(DBConstants.C4_DBPOOL_C4PROD_ONSI));
+				CdbConnectionMgr.getConnectionMgr().createPool(DBConstants.C4_DBPOOL_C4PROD_ONSI,
+						mEmailerProps.getProperty(DBConstants.C4_DBPOOL_C4PROD_ONSI), C4_RSKU_ENV);
 
 				CdbConnectionMgr.getConnectionMgr().createPool(DBConstants.C4_DBPOOL_C4PROD_OFFI,
-						mEmailerProps.getProperty(DBConstants.C4_DBPOOL_C4PROD_OFFI));
+						mEmailerProps.getProperty(DBConstants.C4_DBPOOL_C4PROD_OFFI), C4_RSKU_ENV);
 
 				CdbConnectionMgr.getConnectionMgr().createPool(DBConstants.C4_DBPOOL_GPSNAP_ONSI,
-						mEmailerProps.getProperty(DBConstants.C4_DBPOOL_GPSNAP_ONSI));
+						mEmailerProps.getProperty(DBConstants.C4_DBPOOL_GPSNAP_ONSI), C4_RSKU_ENV);
 
 				CdbConnectionMgr.getConnectionMgr().createPool(DBConstants.C4_DBPOOL_INFOSHU_INFI,
-						mEmailerProps.getProperty(DBConstants.C4_DBPOOL_INFOSHU_INFI));
+						mEmailerProps.getProperty(DBConstants.C4_DBPOOL_INFOSHU_INFI), C4_RSKU_ENV);
 
+				mLogger.info("All C4 DB Accounts Created Done..........");
 			} catch (SQLException e) {
 				mLogger.error("Error: " + e.getMessage());
 				// System.exit(1);

@@ -19,10 +19,13 @@ import com.hp.c4.rsku.rSku.bean.request.TPeriodData;
 import com.hp.c4.rsku.rSku.c4.util.C4Exception;
 import com.hp.c4.rsku.rSku.constants.DBConstants;
 import com.hp.c4.rsku.rSku.dbio.persistent.CdbConnectionMgr;
+import com.hp.c4.rsku.rSku.dbio.persistent.mapping.io.CProcedureInfo;
+import com.hp.c4.rsku.rSku.dbio.persistent.mapping.io.CSPParameter;
 import com.hp.c4.rsku.rSku.dbio.persistent.mapping.io.CpricetermMappingIO;
 import com.hp.c4.rsku.rSku.pojo.DefaultMotTradingExpense;
 import com.hp.c4.rsku.rSku.pojo.DefaultPriceDescriptor;
 import com.hp.c4.rsku.rSku.pojo.MaskElementTypes;
+import com.hp.c4.rsku.rSku.pojo.Product;
 import com.hp.c4.rsku.rSku.security.server.business.LoginDelegate;
 import com.hp.c4.rsku.rSku.security.server.business.PermissionDelegate;
 import com.hp.c4.rsku.rSku.security.server.business.UserDelegate;
@@ -45,9 +48,11 @@ public class Cache {
 	private static Map<String, String> theTmpPricetermMapping = null;
 
 	private static final String QUERY_ALL_MASKS = "{call c4Output.selectAllMasks (?)}";
+
 	private static final String QUERY_PL_FOR_PRODUCTS = "{call c4util.selectPlAndPlatforms (?,?)} ";
 	private static final String KEY_DELIMITER = "|";
 	private static String STMT_PL_COMPANY_MAP = "SELECT PROD_LINE, TENANT_CD FROM T_PL_COMPANY";
+	private static final String SP_ISO_CURR_CODE = "{call c4util.getIsoCurrencyCode (?)}";
 
 	private static String sessionId;
 
@@ -107,7 +112,8 @@ public class Cache {
 	 * @return
 	 * @throws SQLException
 	 */
-	public static PlMappingData[] getPlMappingInfo(com.hp.c4.rsku.rSku.pojo.Product[] pProds) throws SQLException {
+	public static Map<Product, PlMappingData> getPlMappingInfo(com.hp.c4.rsku.rSku.pojo.Product[] pProds)
+			throws SQLException {
 		SQLUtil util = null;
 		Connection con = null;
 		try {
@@ -118,7 +124,7 @@ public class Cache {
 			CharacterSet cset = CharacterSet.make(oracleId);
 
 			StructDescriptor packDesc = StructDescriptor.createDescriptor("PACK_ID", con);
-			ArrayList packIds = new ArrayList();
+			ArrayList<STRUCT> packIds = new ArrayList<STRUCT>();
 			util.setSQL(QUERY_PL_FOR_PRODUCTS);
 
 			for (int i = 0; i < pProds.length; i++) {
@@ -138,13 +144,13 @@ public class Cache {
 			util.registerOutParameter(2, oracle.jdbc.OracleTypes.ARRAY, "PL_PLATFORM_ARRAY");
 			util.execute();
 			Object[] theArray = (Object[]) util.getARRAY(2).getArray();
-			PlMappingData[] thePlsData = new PlMappingData[theArray.length];
+			Map<Product, PlMappingData> thePlsData = new LinkedHashMap<Product, PlMappingData>();
 			for (int i = 0; i < theArray.length; i++) {
 				STRUCT theStruct = (STRUCT) theArray[i];
 				Object[] theAttributes = theStruct.getAttributes();
 				final String thePl = (String) theAttributes[0];
 				final String thePlatform = (String) theAttributes[1];
-				thePlsData[i] = new PlMappingData(pProds[i], thePl, thePlatform);
+				thePlsData.put(pProds[i], new PlMappingData(pProds[i], thePl, thePlatform));
 			}
 			return thePlsData;
 		} finally {
@@ -618,14 +624,15 @@ public class Cache {
 			ps.setString(3, c4CostDates[2]);
 			rs = ps.executeQuery();
 			while (rs.next()) {
-
+				if (tPeriodMap.size() == 3)
+					break;
 				Integer periodId = rs.getInt("PERIOD_ID");
 				String periodType = rs.getString("PERIOD_TYPE");
 				Date startDate = rs.getDate("START_DATE");
-				TPeriodData tperiod = new TPeriodData(periodId, periodType.charAt(0), startDate);
-				tPeriodMap.put(periodType.charAt(0), tperiod);
-				if (tPeriodMap.size() == 3)
-					break;
+				if (!tPeriodMap.containsKey(periodType.charAt(0))) {
+					TPeriodData tperiod = new TPeriodData(periodId, periodType.charAt(0), startDate);
+					tPeriodMap.put(periodType.charAt(0), tperiod);
+				}
 			}
 
 		} catch (Exception e) {
@@ -645,13 +652,13 @@ public class Cache {
 	 * @param EXCLUDE_ADD_MOTS
 	 * @return
 	 */
-	public static Map<String,CcosCost> findRskuCostAvailable(String c4Date, String rskuProdId, List<CcosCost> list,
+	public static Map<String, CcosCost> findRskuCostAvailable(String c4Date, String rskuProdId, List<CcosCost> list,
 			String quarterDate, List<String> EXCLUDE_ADD_MOTS) {
 
 		mLogger.info("Get the C4 T_COS elements for RSKU which is available  from C4 Table......");
 		ResultSet rs = null;
 		PreparedStatement ps = null;
-		Map<String,CcosCost> rsSkuCostElements=new LinkedHashMap<String, CcosCost>();
+		Map<String, CcosCost> rsSkuCostElements = new LinkedHashMap<String, CcosCost>();
 		try {
 			Connection theConnection = CdbConnectionMgr.getConnectionMgr()
 					.getConnection(DBConstants.C4_DBPOOL_C4PROD_ONSI);
@@ -674,13 +681,67 @@ public class Cache {
 				data.setPeriodStart(c4Date);
 				data.setCost(0);
 				data.setAction("REMOVE");
-				//if (!EXCLUDE_ADD_MOTS.contains(data.getElementType()))
-					rsSkuCostElements.put(rs.getString("ELEMENT_TYPE"), data);
+				// if (!EXCLUDE_ADD_MOTS.contains(data.getElementType()))
+				rsSkuCostElements.put(rs.getString("ELEMENT_TYPE"), data);
 			}
 
 		} catch (Exception e) {
 			mLogger.error("Exception occured at findRskuCostAvailable...." + e.getMessage());
 		}
 		return rsSkuCostElements;
+	}
+
+	/**
+	 * This method is used for Load ALL Order of sequence incotermlist Flags
+	 * 
+	 * @return
+	 */
+	public static List<String> loadAllSequenceIncoTermList() throws C4SecurityException {
+
+		try {
+			mLogger.info("Loaad All Sequence Incoterm :List...");
+			CpricetermMappingIO io = new CpricetermMappingIO(DBConstants.C4_DBPOOL_C4PROD_ONSI);
+			return io.loadAllSequenceIncoTermList();
+
+		} catch (C4Exception e) {
+			mLogger.error("Exception occured at...." + e.getMessage());
+			throw new C4SecurityException(e.getMessage());
+		}
+	}
+
+	public static Map<String, String> getIsoCurrencyCode() throws C4SecurityException {
+
+		SQLUtil theUtil = null;
+		ResultSet rs = null;
+
+		HashMap<String, String> map = new HashMap<String, String>();
+		try {
+			theUtil = new SQLUtil(DBConstants.C4_DBPOOL_C4PROD_ONSI);
+
+			theUtil.setSQL(SP_ISO_CURR_CODE);
+			theUtil.registerOutParameter(1, oracle.jdbc.OracleTypes.CURSOR);
+			theUtil.execute();
+
+			rs = (ResultSet) theUtil.getObject(1);
+
+			while (rs.next()) {
+				map.put(rs.getString("ISO_CODE"), rs.getString("CURRENCY_DESCRIPTION"));
+			}
+
+		} catch (SQLException e) {
+			mLogger.error("Exception occured at...." + e.getMessage());
+			throw new C4SecurityException(e.getMessage());
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (theUtil != null)
+					theUtil.close();
+			} catch (Throwable ignore) {
+				mLogger.error("Exception occured at...." + ignore.getMessage());
+				throw new C4SecurityException(ignore.getMessage());
+			}
+		}
+		return map;
 	}
 }

@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -156,10 +157,13 @@ public class C4PricingAnalyticsService {
 		mLogger.info("PL Mapping for the Requested Base SKU's");
 		try {
 			String[] thePLs = new String[prodList.length];
-			PlMappingData[] data = Cache.getPlMappingInfo(prodList);
+			Map<Product, PlMappingData> data = Cache.getPlMappingInfo(prodList);
 
-			for (int i = 0; i < data.length; i++) { // we populate the result arrya with the values
-				thePLs[i] = data[i].get_pl();
+			int count = 0;
+			Collection<PlMappingData> plMapData = data.values();
+			for (PlMappingData plMapping : plMapData) {
+				thePLs[count] = plMapping.get_pl();
+				count++;
 			}
 			return thePLs;
 		} catch (SQLException e) {

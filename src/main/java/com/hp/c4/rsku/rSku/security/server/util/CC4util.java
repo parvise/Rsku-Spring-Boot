@@ -87,7 +87,7 @@ public class CC4util {
 		while (itr.hasNext()) {
 			String name = (String) itr.next();
 			if (name.equalsIgnoreCase(DBConstants.C4_DBPOOL_INFOSHU_INFI))
-				CdbConnectionMgr.getConnectionMgr().createPool(name, prop.getProperty(name));
+				CdbConnectionMgr.getConnectionMgr().createPool(name, prop.getProperty(name),null);
 		}
 	}
 

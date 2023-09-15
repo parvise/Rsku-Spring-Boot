@@ -1,5 +1,6 @@
 package com.hp.c4.rsku.rSku.rest.repo;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
@@ -14,6 +15,8 @@ public class MOTTradingExpenseRepo {
 	private static Map<String, DefaultMotTradingExpense> defaultMotMap;
 	private static Map<String, String> loadAllMotMap;
 
+	private static List<String> sequenceIncoTermList;
+
 	public Map<String, DefaultMotTradingExpense> getDefaultMotExpense() throws C4SecurityException {
 		if (defaultMotMap == null) {
 			defaultMotMap = Cache.getDefaultMotExpense();
@@ -27,5 +30,13 @@ public class MOTTradingExpenseRepo {
 		}
 
 		return loadAllMotMap;
+	}
+
+	public List<String> loadAllSequenceIncoTermList() throws C4SecurityException {
+		if (sequenceIncoTermList == null) {
+			sequenceIncoTermList = Cache.loadAllSequenceIncoTermList();
+		}
+
+		return sequenceIncoTermList;
 	}
 }

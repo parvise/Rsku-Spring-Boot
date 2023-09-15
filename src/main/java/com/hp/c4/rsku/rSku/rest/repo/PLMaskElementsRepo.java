@@ -25,7 +25,7 @@ public class PLMaskElementsRepo {
 		return plMaskElements;
 	}
 
-	public Map<String, List<MaskElementTypes>> getAllDefaultMasElementTypes() throws C4Exception {
+	public Map<String, List<MaskElementTypes>> getAllDefaultCosElementTypes() throws C4Exception {
 		if (defaultPLMaskElementTypes == null) {
 
 			CMaskUtilIO io = new CMaskUtilIO();

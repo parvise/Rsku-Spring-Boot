@@ -22,8 +22,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 	@ExceptionHandler(Exception.class)
 	public final ResponseEntity<Map<String, String>> handleAllExceptions(Exception ex, WebRequest request) {
-		Map<String, String> details = new HashMap<>();
+		Map<String, String> details = new HashMap<String, String>();
 		details.put(C4_EXCEPTION_KEY, C4_EXCEPTION_VALUE);
-		return new ResponseEntity<>(details, HttpStatus.INTERNAL_SERVER_ERROR);
+		return new ResponseEntity<Map<String, String>>(details, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 }

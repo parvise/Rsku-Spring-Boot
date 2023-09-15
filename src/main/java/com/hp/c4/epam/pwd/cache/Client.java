@@ -1,4 +1,4 @@
-package com.hp.c4.rsku.rSku.rest.epam.api;
+package com.hp.c4.epam.pwd.cache;
 
 import java.awt.Image;
 import java.io.BufferedReader;
@@ -300,7 +300,7 @@ public class Client {
             String rv = getResponse(conn);
             return rv;
         } catch (IOException ie) {
-            throw new Client.APIException("Failed to post data to Password Safe", ie);
+            throw new Client.APIException("Failed to post data to Password Safe ="+ie.getMessage(), ie);
         }
     }
 
@@ -315,6 +315,7 @@ public class Client {
             conn.setRequestMethod("PUT");
             conn.setRequestProperty("Content-Type", "application/json");
             conn.setRequestProperty("Accept", "*/*");
+         //   System.setProperty("https.protocols", "SSLv3,TLSv1,TLSv1.1,TLSv1.2");
 
             OutputStream out = conn.getOutputStream();
             out.write(body.getBytes());
@@ -501,11 +502,13 @@ public class Client {
      * </pre>
      * @throws Client.APIException
      */
-    public String immediatePasswordRequest(int accountId, int systemId, int duration, String reason) throws Client.APIException {
-        String body = String.format("{\"AccountId\":%d,\"SystemId\":%d,\"DurationMinutes\":%d,\"Reason\":%s}", accountId, systemId, duration, jsonString(reason));
+    public String immediatePasswordRequest(int accountId, int systemId, int duration, String reason,String conflictOption)
+			throws Client.APIException {
+		String body = String.format("{\"AccountId\":%d,\"SystemId\":%d,\"DurationMinutes\":%d,\"Reason\":%s,\"ConflictOption\":%s}",
+				accountId, systemId, duration, jsonString(reason),jsonString(conflictOption));
 
-        return post("Requests", body);
-    }
+		return post("Requests", body);
+	}
 
     /**
      * Retrieve the clear text password for the given request id

@@ -58,7 +58,7 @@ public class DBProperties {
 
 		try {
 			CdbConnectionMgr.getConnectionMgr().createPool(DBConstants.C4_DBPOOL_C4PROD_ONSI,
-					mEmailerProps.getProperty(DBConstants.C4_DBPOOL_C4PROD_ONSI));
+					mEmailerProps.getProperty(DBConstants.C4_DBPOOL_C4PROD_ONSI), null);
 
 			Connection con = CdbConnectionMgr.getConnectionMgr().getConnection(DBConstants.C4_DBPOOL_C4PROD_ONSI);
 

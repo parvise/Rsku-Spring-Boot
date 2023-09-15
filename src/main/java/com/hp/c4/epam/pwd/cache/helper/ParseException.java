@@ -19,7 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  ******************************************************************************/
-package com.hp.c4.rsku.rSku.rest.epam.api.json;
+package com.hp.c4.epam.pwd.cache.helper;
 
 /**
  * An unchecked exception to indicate that an input does not qualify as valid JSON.
